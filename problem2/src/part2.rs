@@ -17,28 +17,29 @@ fn main() {
             first..last
         })
         .filter_map(|num| {
-            let num_s = num.to_string();
-            let first = num_s.chars().next().unwrap();
+            // invalids:
+            //     d = len / 2
+            //     num = [n * 10^((d / chk) * 1)] + [n * 10^((d / chk) * 2)] + [n * 10^((d / chk) * 3)] + [...] + [n * 10^((d / chk) * chk)]
+            //        ^^ probably not accurate, hard to put into an equation lol
 
-            if num_s.chars().filter(|it| *it == first).count() < 2 {
-                return None;
-            }
+            let d = num.ilog10() + 1;
+            let d2 = d / 2;
 
-            let s_len = num_s.len();
-
-            (1..=(s_len / 2)).find_map(|chk| {
-                if s_len % chk != 0 {
+            (1..=d2).find_map(|chk| {
+                if d % chk != 0 {
                     return None;
                 }
 
-                let first = &num_s[..chk];
-                let repeats = s_len / chk;
+                let chunks = d / chk;
+                let max = 10usize.pow(d - chk);
+                let base = num / max;
+                let mut target = base;
 
-                if num_s == first.repeat(repeats) {
-                    Some(num)
-                } else {
-                    None
+                for i in 1..chunks {
+                    target += base * 10usize.pow(i * chk);
                 }
+
+                if num == target { Some(num) } else { None }
             })
         })
         .sum::<usize>();

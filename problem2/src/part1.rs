@@ -15,17 +15,12 @@ fn main() {
             first..last
         })
         .filter_map(|num| {
-            let num_s = num.to_string();
+            // invalid ID = n * 10^(num.len() / 2) + n
+            let d = (num.ilog10() + 1) / 2;
+            let base = num / 10_usize.pow(d);
+            let target = (base * 10_usize.pow(d)) + base;
 
-            if num_s.len() % 2 != 0 {
-                return None;
-            }
-
-            let len = num_s.len() / 2;
-            let first = &num_s[0..len];
-            let last = &num_s[len..];
-
-            if first == last { Some(num) } else { None }
+            if num == target { Some(num) } else { None }
         })
         .sum::<usize>();
 
