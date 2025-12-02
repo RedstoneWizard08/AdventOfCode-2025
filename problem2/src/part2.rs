@@ -1,53 +1,43 @@
+#![feature(iter_order_by)]
+
+use itertools::Itertools;
+use rayon::iter::{ParallelBridge, ParallelIterator};
 use std::fs;
 
-use anyhow::Result;
-use indicatif::ProgressIterator;
-use itertools::Itertools;
-
-fn main() -> Result<()> {
-    let input = fs::read_to_string("input.txt")?
+fn main() {
+    let sum = fs::read_to_string("input.txt")
+        .unwrap()
         .trim()
         .split(",")
-        .map(|it| it.to_owned())
-        .collect_vec();
-
-    let input = input
-        .into_iter()
-        .progress()
-        .map(|it| {
+        .par_bridge()
+        .flat_map(|it| {
             let (first, last) = it.split_once("-").unwrap();
             let first = first.parse::<usize>().unwrap();
             let last = last.parse::<usize>().unwrap();
 
             first..last
         })
-        .flatten()
-        .collect_vec();
+        .filter_map(|num| {
+            let num_s = num.to_string();
+            let first = num_s.chars().next().unwrap();
 
-    let mut sum = 0;
-
-    for num in input.into_iter().progress() {
-        let num_s = format!("{num}");
-        let len = num_s.len() / 2;
-
-        for len in 1..(len + 1) {
-            let mut bits = num_s
-                .chars()
-                .chunks(len)
-                .into_iter()
-                .map(|it| it.collect::<String>())
-                .collect_vec();
-
-            let first = bits.remove(0);
-
-            if bits.into_iter().all(|it| *it == first) {
-                sum += num;
-                break;
+            if num_s.chars().filter(|it| *it == first).count() < 2 {
+                return None;
             }
-        }
-    }
+
+            (1..(num_s.len() / 2 + 1)).find_map(|len| {
+                let chunks = num_s.chars().chunks(len);
+                let mut bits = chunks.into_iter();
+                let first = bits.next().unwrap().collect::<Vec<char>>();
+
+                if bits.all(|it| it.eq_by(first.iter(), |x, y| x == *y)) {
+                    Some(num)
+                } else {
+                    None
+                }
+            })
+        })
+        .sum::<usize>();
 
     println!("Sum: {sum}");
-
-    Ok(())
 }
