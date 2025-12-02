@@ -8,7 +8,11 @@ look here. :D
 
 ## Benchmarks
 
-*Done using `hyperfine [binary] --warmup 10 -N`*
+_Done using `hyperfine [binary] --warmup 10 -N`_ _Binaries were built using
+`cargo build --release`_
+
+Note that these benchmarks will change depending on your puzzle input and
+hardware.
 
 ```sh
 # Hardware
