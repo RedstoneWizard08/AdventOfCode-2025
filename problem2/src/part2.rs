@@ -25,8 +25,12 @@ fn main() {
                 return None;
             }
 
-            (1..(num_s.len() / 2 + 1)).find_map(|len| {
-                let chunks = num_s.chars().chunks(len);
+            (1..=(num_s.len() / 2)).find_map(|chk| {
+                if num_s.len() % chk != 0 {
+                    return None;
+                }
+
+                let chunks = num_s.chars().chunks(chk);
                 let mut bits = chunks.into_iter();
                 let first = bits.next().unwrap().collect::<Vec<char>>();
 

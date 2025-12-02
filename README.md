@@ -52,6 +52,6 @@ Benchmark 1: target/release/problem2_part1
 
 # Problem 2 - Part 2
 Benchmark 1: target/release/problem2_part2
-  Time (mean ± σ):      76.0 ms ±  11.0 ms    [User: 499.5 ms, System: 4.4 ms]
-  Range (min … max):    64.9 ms … 112.6 ms    26 runs
+  Time (mean ± σ):      55.6 ms ±   1.8 ms    [User: 377.0 ms, System: 3.6 ms]
+  Range (min … max):    53.0 ms …  62.7 ms    53 runs
 ```
