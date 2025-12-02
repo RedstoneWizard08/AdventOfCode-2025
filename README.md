@@ -6,9 +6,13 @@ These are my answers for the
 Go solve these yourself, first! It's fun to figure it out! Then you can take a
 look here. :D
 
+## Competition
+
 I'm half-competing with [@rhysdh540](https://github.com/rhysdh540) to build the
 fastest solutions (he's using Kotlin, I'm using Rust). It's a friendly
 competition, nothing at stake, just for fun. :)
+
+Go check out his solutions here: https://github.com/rhysdh540/AdventOfCode
 
 ## Benchmarks
 
