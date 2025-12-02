@@ -6,10 +6,14 @@ These are my answers for the
 Go solve these yourself, first! It's fun to figure it out! Then you can take a
 look here. :D
 
+I'm half-competing with [@rhysdh540](https://github.com/rhysdh540) to build the
+fastest solutions (he's using Kotlin, I'm using Rust). It's a friendly
+competition, nothing at stake, just for fun. :)
+
 ## Benchmarks
 
-_Done using `hyperfine [binary] --warmup 10 -N`_ _Binaries were built using
-`cargo build --release`_
+_Done using `hyperfine [binary] --warmup 10 -N`_\
+_Binaries were built using `cargo build --release`_
 
 Note that these benchmarks will change depending on your puzzle input and
 hardware.
