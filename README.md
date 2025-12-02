@@ -16,7 +16,7 @@ Go check out his solutions here: https://github.com/rhysdh540/AdventOfCode
 
 ## Benchmarks
 
-_Done using `hyperfine [binary] --warmup 10 -N`_\
+_Done using `hyperfine [binary] --warmup 100 -N`_\
 _Binaries were built using `cargo build --release`_
 
 Note that these benchmarks will change depending on your puzzle input and
@@ -37,21 +37,21 @@ Shell: fish 4.2.0
 ```sh
 # Problem 1 - Part 1
 Benchmark 1: target/release/problem1_part1
-  Time (mean ± σ):       1.9 ms ±   0.7 ms    [User: 0.7 ms, System: 0.9 ms]
-  Range (min … max):     0.7 ms …   8.1 ms    1493 runs
+  Time (mean ± σ):     625.4 µs ± 107.0 µs    [User: 370.3 µs, System: 169.8 µs]
+  Range (min … max):   493.4 µs … 2323.8 µs    5350 runs
 
 # Problem 1 - Part 2
 Benchmark 1: target/release/problem1_part2
-  Time (mean ± σ):       1.2 ms ±   0.2 ms    [User: 0.8 ms, System: 0.3 ms]
-  Range (min … max):     1.0 ms …   2.8 ms    1990 runs
+  Time (mean ± σ):     980.6 µs ± 224.3 µs    [User: 689.1 µs, System: 523.8 µs]
+  Range (min … max):   632.3 µs … 2699.7 µs    1383 runs
 
 # Problem 2 - Part 1
 Benchmark 1: target/release/problem2_part1
-  Time (mean ± σ):      13.5 ms ±   3.4 ms    [User: 66.1 ms, System: 3.9 ms]
-  Range (min … max):    10.0 ms …  40.2 ms    222 runs
+  Time (mean ± σ):       9.9 ms ±   0.8 ms    [User: 56.5 ms, System: 2.6 ms]
+  Range (min … max):     8.1 ms …  13.7 ms    291 runs
 
 # Problem 2 - Part 2
 Benchmark 1: target/release/problem2_part2
-  Time (mean ± σ):      74.7 ms ±   3.8 ms    [User: 474.0 ms, System: 5.3 ms]
-  Range (min … max):    69.7 ms …  88.8 ms    41 runs
+  Time (mean ± σ):      76.0 ms ±  11.0 ms    [User: 499.5 ms, System: 4.4 ms]
+  Range (min … max):    64.9 ms … 112.6 ms    26 runs
 ```
