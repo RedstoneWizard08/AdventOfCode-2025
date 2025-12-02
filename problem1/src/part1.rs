@@ -1,60 +1,45 @@
 use std::fs;
-use anyhow::Result;
-use indicatif::ProgressIterator;
-use itertools::Itertools;
 
-// I KNOW there is a better way to do this, but I can't be bothered right now :P
+fn move_left(orig: usize, amount: usize) -> usize {
+    let temp = (orig as isize - amount as isize) % 100;
 
-fn dumb_move_left(mut orig: usize, amount: usize) -> usize {
-    for _ in 0..amount {
-        if orig == 0 {
-            orig = 99;
-        } else {
-            orig -= 1;
-        }
+    if temp < 0 {
+        (100 + temp) as usize
+    } else {
+        temp as usize
     }
-
-    orig
 }
 
-fn dumb_move_right(mut orig: usize, amount: usize) -> usize {
-    for _ in 0..amount {
-        if orig == 99 {
-            orig = 0;
-        } else {
-            orig += 1;
-        }
-    }
-
-    orig
+fn move_right(orig: usize, amount: usize) -> usize {
+    (orig + amount) % 100
 }
 
-fn main() -> Result<()> {
-    let input = fs::read_to_string("input.txt")?
-        .trim()
-        .lines()
-        .map(|it| it.to_owned())
-        .collect_vec();
-
+fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
-    for mut item in input.into_iter().progress() {
-        let mode = item.remove(0);
-        let amount = item.parse::<usize>()?;
+    let text = fs::read_to_string("input.txt").unwrap();
 
-        match mode {
-            'L' => pos = dumb_move_left(pos, amount),
-            'R' => pos = dumb_move_right(pos, amount),
-            i => panic!("Unknown mode: {i}")
-        }
+    text.trim()
+        .lines()
+        .map(|it| {
+            let mut chars = it.chars();
+            let mode = chars.next().unwrap();
+            let amount = chars.collect::<String>().parse::<usize>().unwrap();
 
-        if pos == 0 {
-            zeros += 1;
-        }
-    }
+            (mode, amount)
+        })
+        .for_each(|(mode, amount)| {
+            match mode {
+                'L' => pos = move_left(pos, amount),
+                'R' => pos = move_right(pos, amount),
+                i => panic!("Unknown mode: {i}"),
+            }
+
+            if pos == 0 {
+                zeros += 1;
+            }
+        });
 
     println!("Zeros: {zeros}");
-
-    Ok(())
 }
