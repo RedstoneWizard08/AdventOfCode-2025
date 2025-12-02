@@ -1,48 +1,33 @@
+use rayon::iter::{ParallelBridge, ParallelIterator};
 use std::fs;
 
-use anyhow::Result;
-use indicatif::ProgressIterator;
-use itertools::Itertools;
-
-fn main() -> Result<()> {
-    let input = fs::read_to_string("input.txt")?
+fn main() {
+    let sum = fs::read_to_string("input.txt")
+        .unwrap()
         .trim()
         .split(",")
-        .map(|it| it.to_owned())
-        .collect_vec();
-
-    let input = input
-        .into_iter()
-        .progress()
-        .map(|it| {
+        .par_bridge()
+        .flat_map(|it| {
             let (first, last) = it.split_once("-").unwrap();
             let first = first.parse::<usize>().unwrap();
             let last = last.parse::<usize>().unwrap();
 
             first..last
         })
-        .flatten()
-        .collect_vec();
+        .filter_map(|num| {
+            let num_s = num.to_string();
 
-    let mut sum = 0;
+            if num_s.len() % 2 != 0 {
+                return None;
+            }
 
-    for num in input.into_iter().progress() {
-        let num_s = format!("{num}");
-        
-        if num_s.len() % 2 != 0 {
-            continue;
-        }
+            let len = num_s.len() / 2;
+            let first = &num_s[0..len];
+            let last = &num_s[len..];
 
-        let len = num_s.len() / 2;
-        let first = &num_s[0..len];
-        let last = &num_s[len..];
-
-        if first == last {
-            sum += num;
-        }
-    }
+            if first == last { Some(num) } else { None }
+        })
+        .sum::<usize>();
 
     println!("Sum: {sum}");
-
-    Ok(())
 }
