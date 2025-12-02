@@ -1,0 +1,17 @@
+[package]
+name = "problem2"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "part1"
+path = "src/part1.rs"
+
+[[bin]]
+name = "part2"
+path = "src/part2.rs"
+
+[dependencies]
+anyhow = "1.0.100"
+indicatif = "0.18.3"
+itertools = "0.14.0"
