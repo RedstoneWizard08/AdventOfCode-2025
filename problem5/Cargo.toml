@@ -1,14 +1,14 @@
 [package]
-name = "problem3"
+name = "problem5"
 version = "0.1.0"
 edition = "2024"
 
 [[bin]]
-name = "problem3_part1"
+name = "problem5_part1"
 path = "src/part1.rs"
 
 [[bin]]
-name = "problem3_part2"
+name = "problem5_part2"
 path = "src/part2.rs"
 
 [dependencies]

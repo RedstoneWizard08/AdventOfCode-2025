@@ -1,4 +1,4 @@
-use std::fs;
+const INPUT: &str = include_str!("../input.txt");
 
 fn move_left(orig: usize, amount: usize) -> usize {
     let temp = (orig as isize - amount as isize) % 100;
@@ -18,9 +18,7 @@ fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
-    let text = fs::read_to_string("input.txt").unwrap();
-
-    text.trim()
+    INPUT.trim()
         .lines()
         .map(|it| {
             let mut chars = it.chars();

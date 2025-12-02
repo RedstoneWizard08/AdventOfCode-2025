@@ -1,9 +1,9 @@
 use rayon::iter::{ParallelBridge, ParallelIterator};
-use std::fs;
+
+const INPUT: &str = include_str!("../input.txt");
 
 fn main() {
-    let sum = fs::read_to_string("input.txt")
-        .unwrap()
+    let sum = INPUT
         .trim()
         .split(",")
         .par_bridge()

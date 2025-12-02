@@ -132,6 +132,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "problem10"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem11"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem12"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
 name = "problem2"
 version = "0.1.0"
 dependencies = [
@@ -144,6 +174,72 @@ dependencies = [
 [[package]]
 name = "problem3"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem4"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem5"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem6"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem7"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem8"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
+
+[[package]]
+name = "problem9"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "indicatif",
+ "itertools",
+ "rayon",
+]
 
 [[package]]
 name = "proc-macro2"

@@ -1,4 +1,4 @@
-use std::fs;
+const INPUT: &str = include_str!("../input.txt");
 
 // I KNOW there is a better way to do this, but I can't be bothered right now :P
 
@@ -38,9 +38,7 @@ fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
-    let text = fs::read_to_string("input.txt").unwrap();
-
-    text.trim()
+    INPUT.trim()
         .lines()
         .map(|it| {
             let mut chars = it.chars();
