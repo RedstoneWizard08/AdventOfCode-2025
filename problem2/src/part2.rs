@@ -1,6 +1,5 @@
 #![feature(iter_order_by)]
 
-use itertools::Itertools;
 use rayon::iter::{ParallelBridge, ParallelIterator};
 
 const INPUT: &str = include_str!("../input.txt");
@@ -25,16 +24,17 @@ fn main() {
                 return None;
             }
 
-            (1..=(num_s.len() / 2)).find_map(|chk| {
-                if num_s.len() % chk != 0 {
+            let s_len = num_s.len();
+
+            (1..=(s_len / 2)).find_map(|chk| {
+                if s_len % chk != 0 {
                     return None;
                 }
 
-                let chunks = num_s.chars().chunks(chk);
-                let mut bits = chunks.into_iter();
-                let first = bits.next().unwrap().collect::<Vec<char>>();
+                let first = &num_s[..chk];
+                let repeats = s_len / chk;
 
-                if bits.all(|it| it.eq_by(first.iter(), |x, y| x == *y)) {
+                if num_s == first.repeat(repeats) {
                     Some(num)
                 } else {
                     None
