@@ -2,3 +2,4 @@ target
 input.txt
 flamegraph.svg
 perf.data*
+test-input.txt

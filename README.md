@@ -37,13 +37,13 @@ Shell: fish 4.2.0
 ```sh
 # Problem 1 - Part 1
 Benchmark 1: target/release/problem1_part1
-  Time (mean ± σ):       2.3 ms ±   0.6 ms    [User: 0.9 ms, System: 1.0 ms]
-  Range (min … max):     0.8 ms …  10.0 ms    1338 runs
+  Time (mean ± σ):       1.9 ms ±   0.7 ms    [User: 0.7 ms, System: 0.9 ms]
+  Range (min … max):     0.7 ms …   8.1 ms    1493 runs
 
 # Problem 1 - Part 2
 Benchmark 1: target/release/problem1_part2
-  Time (mean ± σ):       3.7 ms ±   1.1 ms    [User: 2.3 ms, System: 1.0 ms]
-  Range (min … max):     1.5 ms …   8.7 ms    869 runs
+  Time (mean ± σ):       1.2 ms ±   0.2 ms    [User: 0.8 ms, System: 0.3 ms]
+  Range (min … max):     1.0 ms …   2.8 ms    1990 runs
 
 # Problem 2 - Part 1
 Benchmark 1: target/release/problem2_part1

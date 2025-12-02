@@ -2,28 +2,16 @@ const INPUT: &str = include_str!("../input.txt");
 
 // I KNOW there is a better way to do this, but I can't be bothered right now :P
 
-fn dumb_move_left(mut orig: usize, amount: usize, clicks: &mut usize) -> usize {
+fn dumb_move(left: bool, mut orig: isize, amount: isize, clicks: &mut usize) -> isize {
+    let step = if left { -1 } else { 1 };
+
     for _ in 0..amount {
-        if orig == 0 {
+        if orig == 0 && left {
             orig = 99;
-        } else {
-            orig -= 1;
-        }
-
-        if orig == 0 {
-            *clicks += 1;
-        }
-    }
-
-    orig
-}
-
-fn dumb_move_right(mut orig: usize, amount: usize, clicks: &mut usize) -> usize {
-    for _ in 0..amount {
-        if orig == 99 {
+        } else if orig == 99 && !left {
             orig = 0;
         } else {
-            orig += 1;
+            orig += step;
         }
 
         if orig == 0 {
@@ -38,18 +26,19 @@ fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
-    INPUT.trim()
+    INPUT
+        .trim()
         .lines()
         .map(|it| {
             let mut chars = it.chars();
             let mode = chars.next().unwrap();
-            let amount = chars.collect::<String>().parse::<usize>().unwrap();
+            let amount = chars.collect::<String>().parse::<isize>().unwrap();
 
             (mode, amount)
         })
         .for_each(|(mode, amount)| match mode {
-            'L' => pos = dumb_move_left(pos, amount, &mut zeros),
-            'R' => pos = dumb_move_right(pos, amount, &mut zeros),
+            'L' => pos = dumb_move(true, pos, amount, &mut zeros),
+            'R' => pos = dumb_move(false, pos, amount, &mut zeros),
             i => panic!("Unknown mode: {i}"),
         });
 

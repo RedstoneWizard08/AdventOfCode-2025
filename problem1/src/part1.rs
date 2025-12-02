@@ -1,19 +1,5 @@
 const INPUT: &str = include_str!("../input.txt");
 
-fn move_left(orig: usize, amount: usize) -> usize {
-    let temp = (orig as isize - amount as isize) % 100;
-
-    if temp < 0 {
-        (100 + temp) as usize
-    } else {
-        temp as usize
-    }
-}
-
-fn move_right(orig: usize, amount: usize) -> usize {
-    (orig + amount) % 100
-}
-
 fn main() {
     let mut zeros = 0;
     let mut pos = 50;
@@ -23,14 +9,14 @@ fn main() {
         .map(|it| {
             let mut chars = it.chars();
             let mode = chars.next().unwrap();
-            let amount = chars.collect::<String>().parse::<usize>().unwrap();
+            let amount = chars.collect::<String>().parse::<isize>().unwrap();
 
             (mode, amount)
         })
         .for_each(|(mode, amount)| {
             match mode {
-                'L' => pos = move_left(pos, amount),
-                'R' => pos = move_right(pos, amount),
+                'L' => pos = (pos - amount) % 100,
+                'R' => pos = (pos + amount) % 100,
                 i => panic!("Unknown mode: {i}"),
             }
 
