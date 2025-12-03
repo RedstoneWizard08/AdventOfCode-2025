@@ -22,7 +22,8 @@ fn dumb_move(left: bool, mut orig: isize, amount: isize, clicks: &mut usize) -> 
     orig
 }
 
-fn main() {
+#[cfg_attr(not(feature = "cli"), allow(unused_mut))]
+pub fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
@@ -42,5 +43,6 @@ fn main() {
             i => panic!("Unknown mode: {i}"),
         });
 
+    #[cfg(feature = "cli")]
     println!("Zeros: {zeros}");
 }

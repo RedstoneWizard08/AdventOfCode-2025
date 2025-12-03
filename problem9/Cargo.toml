@@ -3,6 +3,11 @@ name = "problem9"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = ["cli"]
+bench = []
+cli = []
+
 [[bin]]
 name = "problem9_part1"
 path = "src/part1.rs"
@@ -11,8 +16,19 @@ path = "src/part1.rs"
 name = "problem9_part2"
 path = "src/part2.rs"
 
+[[bench]]
+name = "problem9_bench"
+path = "benches/bench.rs"
+harness = false
+required-features = ["bench"]
+
 [dependencies]
 anyhow = "1.0.100"
+common = { version = "0.1.0", path = "../common" }
 indicatif = { version = "0.18.3", features = ["rayon"] }
+iter-first-max = "0.1.2"
 itertools = "0.14.0"
 rayon = "1.11.0"
+
+[dev-dependencies]
+criterion = "0.8.0"

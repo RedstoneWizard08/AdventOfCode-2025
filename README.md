@@ -16,8 +16,7 @@ Go check out his solutions here: https://github.com/rhysdh540/AdventOfCode
 
 ## Benchmarks
 
-_Done using `hyperfine [binary] --warmup 100 -N`_\
-_Binaries were built using `cargo build --release`_
+_Done using the benchmark in the `benches` crate (`cargo bench -p benches`)._
 
 Note that these benchmarks will change depending on your puzzle input and
 hardware.
@@ -35,33 +34,44 @@ Shell: fish 4.2.0
 ```
 
 ```sh
-# Problem 1 - Part 1
-Benchmark 1: target/release/problem1_part1
-  Time (mean ± σ):     625.4 µs ± 107.0 µs    [User: 370.3 µs, System: 169.8 µs]
-  Range (min … max):   493.4 µs … 2323.8 µs    5350 runs
+problem 1 - part 1      time:   [184.25 µs 186.28 µs 188.59 µs]
+                        change: [−4.9045% −1.8701% +0.9031%] (p = 0.23 > 0.05)
+                        No change in performance detected.
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
 
-# Problem 1 - Part 2
-Benchmark 1: target/release/problem1_part2
-  Time (mean ± σ):     980.6 µs ± 224.3 µs    [User: 689.1 µs, System: 523.8 µs]
-  Range (min … max):   632.3 µs … 2699.7 µs    1383 runs
+problem 1 - part 2      time:   [182.11 µs 183.55 µs 185.13 µs]
+                        change: [−2.6381% −0.7939% +0.9747%] (p = 0.40 > 0.05)
+                        No change in performance detected.
+Found 4 outliers among 100 measurements (4.00%)
+  4 (4.00%) high mild
 
-# Problem 2 - Part 1
-Benchmark 1: target/release/problem2_part1
-  Time (mean ± σ):       4.6 ms ±   1.1 ms    [User: 22.7 ms, System: 2.1 ms]
-  Range (min … max):     3.5 ms …  19.8 ms    707 runs
+problem 2 - part 1      time:   [5.9707 ms 6.1142 ms 6.2692 ms]
+                        change: [+4.8244% +11.335% +17.450%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 6 outliers among 100 measurements (6.00%)
+  5 (5.00%) high mild
+  1 (1.00%) high severe
 
-# Problem 2 - Part 2
-Benchmark 1: target/release/problem2_part2
-  Time (mean ± σ):      17.7 ms ±   3.8 ms    [User: 101.3 ms, System: 2.9 ms]
-  Range (min … max):    14.5 ms …  51.1 ms    197 runs
+problem 2 - part 2      time:   [21.433 ms 22.307 ms 23.429 ms]
+                        change: [−13.632% −8.2239% −2.1797%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  2 (2.00%) high mild
+  5 (5.00%) high severe
 
-# Problem 3 - Part 1
-Benchmark 1: target/release/problem3_part1
-  Time (mean ± σ):       1.7 ms ±   0.5 ms    [User: 0.6 ms, System: 0.9 ms]
-  Range (min … max):     0.7 ms …  10.7 ms    1550 runs
+problem 3 - part 1      time:   [113.84 µs 115.36 µs 117.19 µs]
+                        change: [+6.2286% +9.3676% +12.426%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 6 outliers among 100 measurements (6.00%)
+  3 (3.00%) high mild
+  3 (3.00%) high severe
 
-# Problem 3 - Part 2
-Benchmark 1: target/release/problem3_part2
-  Time (mean ± σ):       2.2 ms ±   0.7 ms    [User: 1.0 ms, System: 0.9 ms]
-  Range (min … max):     0.9 ms …  14.6 ms    1447 runs
+problem 3 - part 2      time:   [182.72 µs 191.42 µs 200.75 µs]
+                        change: [−4.0542% −1.4368% +1.4042%] (p = 0.32 > 0.05)
+                        No change in performance detected.
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) high mild
+  7 (7.00%) high severe
 ```

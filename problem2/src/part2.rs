@@ -1,10 +1,9 @@
-#![feature(iter_order_by)]
-
 use rayon::iter::{ParallelBridge, ParallelIterator};
 
 const INPUT: &str = include_str!("../input.txt");
 
-fn main() {
+#[cfg_attr(not(feature = "cli"), allow(unused))]
+pub fn main() {
     let sum = INPUT
         .trim()
         .split(",")
@@ -44,5 +43,6 @@ fn main() {
         })
         .sum::<usize>();
 
+    #[cfg(feature = "cli")]
     println!("Sum: {sum}");
 }

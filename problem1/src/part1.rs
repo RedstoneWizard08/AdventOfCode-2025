@@ -1,6 +1,7 @@
 const INPUT: &str = include_str!("../input.txt");
 
-fn main() {
+#[cfg_attr(not(feature = "cli"), allow(unused_mut))]
+pub fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
@@ -25,5 +26,6 @@ fn main() {
             }
         });
 
+    #[cfg(feature = "cli")]
     println!("Zeros: {zeros}");
 }

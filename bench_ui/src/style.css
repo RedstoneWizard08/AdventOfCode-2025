@@ -1,0 +1,12 @@
+@import "@fontsource/jetbrains-mono";
+
+html, body {
+    background-color: #111111;
+    color: white;
+    font-family: "JetBrains Mono";
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

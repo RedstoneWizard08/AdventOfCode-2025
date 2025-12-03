@@ -1,0 +1,27 @@
+[package]
+name = "benches"
+version = "0.1.0"
+edition = "2024"
+
+[[bench]]
+name = "bench_all"
+path = "benches/bench.rs"
+harness = false
+
+[dependencies]
+problem1 = { version = "0.1.0", path = "../problem1", features = ["bench"], default-features = false }
+problem10 = { version = "0.1.0", path = "../problem10", features = ["bench"], default-features = false }
+problem11 = { version = "0.1.0", path = "../problem11", features = ["bench"], default-features = false }
+problem12 = { version = "0.1.0", path = "../problem12", features = ["bench"], default-features = false }
+problem2 = { version = "0.1.0", path = "../problem2", features = ["bench"], default-features = false }
+problem3 = { version = "0.1.0", path = "../problem3", features = ["bench"], default-features = false }
+problem4 = { version = "0.1.0", path = "../problem4", features = ["bench"], default-features = false }
+problem5 = { version = "0.1.0", path = "../problem5", features = ["bench"], default-features = false }
+problem6 = { version = "0.1.0", path = "../problem6", features = ["bench"], default-features = false }
+problem7 = { version = "0.1.0", path = "../problem7", features = ["bench"], default-features = false }
+problem8 = { version = "0.1.0", path = "../problem8", features = ["bench"], default-features = false }
+problem9 = { version = "0.1.0", path = "../problem9", features = ["bench"], default-features = false }
+
+[dev-dependencies]
+concat-idents = "1.1.5"
+criterion = { version = "0.8.0", features = ["html_reports"] }
