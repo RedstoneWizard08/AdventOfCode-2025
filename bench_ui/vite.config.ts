@@ -9,4 +9,6 @@ export default defineConfig({
             preprocess: vitePreprocess(),
         }),
     ],
+
+    base: "CI" in process.env ? "/AdventOfCode-2025/" : "/",
 });
