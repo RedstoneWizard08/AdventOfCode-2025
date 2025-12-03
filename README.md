@@ -34,44 +34,12 @@ Shell: fish 4.2.0
 ```
 
 ```sh
-problem 1 - part 1      time:   [184.25 µs 186.28 µs 188.59 µs]
-                        change: [−4.9045% −1.8701% +0.9031%] (p = 0.23 > 0.05)
-                        No change in performance detected.
-Found 3 outliers among 100 measurements (3.00%)
-  2 (2.00%) high mild
-  1 (1.00%) high severe
+problem 1 - part 1      time:   [161.99 µs 167.77 µs 173.59 µs]
+problem 1 - part 2      time:   [183.58 µs 192.25 µs 202.20 µs]
 
-problem 1 - part 2      time:   [182.11 µs 183.55 µs 185.13 µs]
-                        change: [−2.6381% −0.7939% +0.9747%] (p = 0.40 > 0.05)
-                        No change in performance detected.
-Found 4 outliers among 100 measurements (4.00%)
-  4 (4.00%) high mild
+problem 2 - part 1      time:   [5.9131 ms 6.1700 ms 6.4629 ms]
+problem 2 - part 2      time:   [21.335 ms 21.815 ms 22.301 ms]
 
-problem 2 - part 1      time:   [5.9707 ms 6.1142 ms 6.2692 ms]
-                        change: [+4.8244% +11.335% +17.450%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 6 outliers among 100 measurements (6.00%)
-  5 (5.00%) high mild
-  1 (1.00%) high severe
-
-problem 2 - part 2      time:   [21.433 ms 22.307 ms 23.429 ms]
-                        change: [−13.632% −8.2239% −2.1797%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  2 (2.00%) high mild
-  5 (5.00%) high severe
-
-problem 3 - part 1      time:   [113.84 µs 115.36 µs 117.19 µs]
-                        change: [+6.2286% +9.3676% +12.426%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 6 outliers among 100 measurements (6.00%)
-  3 (3.00%) high mild
-  3 (3.00%) high severe
-
-problem 3 - part 2      time:   [182.72 µs 191.42 µs 200.75 µs]
-                        change: [−4.0542% −1.4368% +1.4042%] (p = 0.32 > 0.05)
-                        No change in performance detected.
-Found 9 outliers among 100 measurements (9.00%)
-  2 (2.00%) high mild
-  7 (7.00%) high severe
+problem 3 - part 1      time:   [110.41 µs 113.50 µs 116.48 µs]
+problem 3 - part 2      time:   [170.25 µs 174.57 µs 179.35 µs]
 ```

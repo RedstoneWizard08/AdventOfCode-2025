@@ -1,10 +1,3 @@
-import b1p1_change from "../../target/criterion/problem 1 - part 1/change/estimates.json";
-import b1p2_change from "../../target/criterion/problem 1 - part 2/change/estimates.json";
-import b2p1_change from "../../target/criterion/problem 2 - part 1/change/estimates.json";
-import b2p2_change from "../../target/criterion/problem 2 - part 2/change/estimates.json";
-import b3p1_change from "../../target/criterion/problem 3 - part 1/change/estimates.json";
-import b3p2_change from "../../target/criterion/problem 3 - part 2/change/estimates.json";
-
 import b1p1_new from "../../target/criterion/problem 1 - part 1/new/estimates.json";
 import b1p2_new from "../../target/criterion/problem 1 - part 2/new/estimates.json";
 import b2p1_new from "../../target/criterion/problem 2 - part 1/new/estimates.json";
@@ -53,7 +46,6 @@ export interface BenchInfo {
 }
 
 export interface ProblemPart {
-    change: ChangeEstimate;
     new: FullEstimate;
     info: BenchInfo;
 }
@@ -70,13 +62,11 @@ const problem1: Problem = {
     name: "Secret Enterance",
 
     part1: {
-        change: b1p1_change,
         new: b1p1_new,
         info: b1p1_info,
     },
 
     part2: {
-        change: b1p2_change,
         new: b1p2_new,
         info: b1p2_info,
     },
@@ -87,13 +77,11 @@ const problem2: Problem = {
     name: "Gift Shop",
 
     part1: {
-        change: b2p1_change,
         new: b2p1_new,
         info: b2p1_info,
     },
 
     part2: {
-        change: b2p2_change,
         new: b2p2_new,
         info: b2p2_info,
     },
@@ -104,13 +92,11 @@ const problem3: Problem = {
     name: "Lobby",
 
     part1: {
-        change: b3p1_change,
         new: b3p1_new,
         info: b3p1_info,
     },
 
     part2: {
-        change: b3p2_change,
         new: b3p2_new,
         info: b3p2_info,
     },
