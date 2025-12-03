@@ -21,6 +21,10 @@ _Done using the benchmark in the `benches` crate (`cargo bench -p benches`)._
 Note that these benchmarks will change depending on your puzzle input and
 hardware.
 
+NOTE! The benchmarks on the GitHub Pages viewer were performed on GitHub
+Actions' hardware (which I do not know), and results differ from my laptop. This
+README is the best place to find good numbers on consumer hardware.
+
 ```sh
 # Hardware
 CPU: Intel Core i7-1165G7 @ 4.7 GHz
