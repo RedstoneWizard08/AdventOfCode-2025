@@ -10,6 +10,7 @@ import subprocess
 cmd = [
     "cargo",
     "bench",
+    "--no-default-features",
     "--features",
     "bench",
     "--no-run",
