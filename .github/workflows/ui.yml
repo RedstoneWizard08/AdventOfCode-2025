@@ -29,6 +29,7 @@ jobs:
             - run: cargo bench -p benches
             - run: cd bench_ui && bun install
             - run: cd bench_ui && bun run build
+            - run: touch bench_ui/dist/.nojekyll
             - uses: JamesIves/github-pages-deploy-action@v4
               with:
                 folder: bench_ui/dist
