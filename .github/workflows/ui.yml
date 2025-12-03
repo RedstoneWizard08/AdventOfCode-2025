@@ -22,6 +22,7 @@ jobs:
             - uses: actions-rust-lang/setup-rust-toolchain@v1
               with:
                 toolchain: nightly
+            - run: pip install requests
             - run: python3 download_inputs.py
               env:
                 AOC_SESSION: ${{ secrets.AOC_SESSION }}
