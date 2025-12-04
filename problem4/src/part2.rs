@@ -5,7 +5,6 @@ embed_input!("../input.txt");
 const WIDTH_I: isize = WIDTH as isize;
 const HEIGHT_I: isize = HEIGHT as isize;
 
-#[inline(always)]
 fn get_cell(cells: &[[bool; WIDTH]; HEIGHT], y: isize, x: isize) -> bool {
     if x < 0 || x > WIDTH_I - 1 || y < 0 || y > WIDTH_I - 1 {
         false
@@ -20,7 +19,7 @@ fn check(cells: &[[bool; WIDTH]; HEIGHT]) -> usize {
 
     for y in 0..HEIGHT_I {
         for x in 0..WIDTH_I {
-            if !cells[y as usize][x as usize] {
+            if !get_cell(&cells, y, x) {
                 continue;
             }
 
@@ -62,7 +61,7 @@ pub fn main() {
     while count > 0 {
         for y in 0..HEIGHT_I {
             for x in 0..WIDTH_I {
-                if !cells[y as usize][x as usize] {
+                if !get_cell(&cells, y, x) {
                     continue;
                 }
 

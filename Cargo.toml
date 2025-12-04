@@ -12,9 +12,11 @@ members = [
     "problem9",
     "problem10",
     "problem11",
-    "problem12", "benches", "common", "macros",
+    "problem12",
+    "benches",
+    "common",
+    "macros",
 ]
 
 [profile.release]
-debug = true
 opt-level = 3

@@ -3,3 +3,4 @@ input.txt
 flamegraph.svg
 perf.data*
 test-input.txt
+profile.json.gz

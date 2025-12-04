@@ -29,18 +29,18 @@ pub fn main() {
                 continue;
             }
 
-            let values = [
-                get_cell(&cells, y, x - 1),     // left
-                get_cell(&cells, y, x + 1),     // right
-                get_cell(&cells, y - 1, x),     // up
-                get_cell(&cells, y + 1, x),     // down
-                get_cell(&cells, y - 1, x - 1), // top left
-                get_cell(&cells, y - 1, x + 1), // top right
-                get_cell(&cells, y + 1, x - 1), // bottom left
-                get_cell(&cells, y + 1, x + 1), // bottom right
-            ];
+            let mut filled = 0;
 
-            if values.into_iter().filter(|it| *it).count() < 4 {
+            filled += get_cell(&cells, y, x - 1) as u8; // left
+            filled += get_cell(&cells, y, x + 1) as u8; // right
+            filled += get_cell(&cells, y - 1, x) as u8; // up
+            filled += get_cell(&cells, y + 1, x) as u8; // down
+            filled += get_cell(&cells, y - 1, x - 1) as u8; // top left
+            filled += get_cell(&cells, y - 1, x + 1) as u8; // top right
+            filled += get_cell(&cells, y + 1, x - 1) as u8; // bottom left
+            filled += get_cell(&cells, y + 1, x + 1) as u8; // bottom right
+
+            if filled < 4 {
                 count += 1;
             }
         }
