@@ -5,7 +5,7 @@ token = os.environ["AOC_SESSION"]
 sess = requests.Session()
 sess.cookies["session"] = token
 
-days = [1, 2, 3]
+days = [1, 2, 3, 4]
 
 for day in days:
     url = f"https://adventofcode.com/2025/day/{day}/input"

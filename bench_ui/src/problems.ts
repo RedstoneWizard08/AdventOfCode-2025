@@ -4,6 +4,8 @@ import b2p1_new from "../../target/criterion/problem 2 - part 1/new/estimates.js
 import b2p2_new from "../../target/criterion/problem 2 - part 2/new/estimates.json";
 import b3p1_new from "../../target/criterion/problem 3 - part 1/new/estimates.json";
 import b3p2_new from "../../target/criterion/problem 3 - part 2/new/estimates.json";
+import b4p1_new from "../../target/criterion/problem 4 - part 1/new/estimates.json";
+import b4p2_new from "../../target/criterion/problem 4 - part 2/new/estimates.json";
 
 import b1p1_info from "../../target/criterion/problem 1 - part 1/new/benchmark.json";
 import b1p2_info from "../../target/criterion/problem 1 - part 2/new/benchmark.json";
@@ -11,6 +13,8 @@ import b2p1_info from "../../target/criterion/problem 2 - part 1/new/benchmark.j
 import b2p2_info from "../../target/criterion/problem 2 - part 2/new/benchmark.json";
 import b3p1_info from "../../target/criterion/problem 3 - part 1/new/benchmark.json";
 import b3p2_info from "../../target/criterion/problem 3 - part 2/new/benchmark.json";
+import b4p1_info from "../../target/criterion/problem 4 - part 1/new/benchmark.json";
+import b4p2_info from "../../target/criterion/problem 4 - part 2/new/benchmark.json";
 
 export interface Confidence {
     confidence_level: number;
@@ -102,4 +106,19 @@ const problem3: Problem = {
     },
 };
 
-export const problems = [problem1, problem2, problem3];
+const problem4: Problem = {
+    day: 4,
+    name: "Printing Department",
+
+    part1: {
+        new: b4p1_new,
+        info: b4p1_info,
+    },
+
+    part2: {
+        new: b4p2_new,
+        info: b4p2_info,
+    },
+};
+
+export const problems = [problem1, problem2, problem3, problem4];

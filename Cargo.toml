@@ -12,7 +12,7 @@ members = [
     "problem9",
     "problem10",
     "problem11",
-    "problem12", "benches", "common",
+    "problem12", "benches", "common", "macros",
 ]
 
 [profile.release]
