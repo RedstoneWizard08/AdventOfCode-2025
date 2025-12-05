@@ -2,6 +2,7 @@ use itertools::Itertools;
 
 const INPUT: &str = include_str!("../input.txt");
 
+#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     let (pre, post) = INPUT.trim().split_once("\n\n").unwrap();
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
@@ -27,5 +28,6 @@ pub fn main() {
         }
     }
 
+    #[cfg(feature = "cli")]
     println!("Fresh: {ok}");
 }
