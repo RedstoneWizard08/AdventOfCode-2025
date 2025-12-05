@@ -1,6 +1,6 @@
 <script lang="ts">
     import Part from "./Part.svelte";
-    import type { Problem } from "./problems";
+    import type { Problem } from "./types";
 
     interface Props {
         problem: Problem;

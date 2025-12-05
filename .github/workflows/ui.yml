@@ -28,7 +28,7 @@ jobs:
                 AOC_SESSION: ${{ secrets.AOC_SESSION }}
             - run: cargo bench -p benches
             - run: cd bench_ui && bun install
-            - run: cd bench_ui && bun run build
+            - run: cd bench_ui && bun codegen.ts && bun run build
             - run: touch bench_ui/dist/.nojekyll
             - uses: JamesIves/github-pages-deploy-action@v4
               with:

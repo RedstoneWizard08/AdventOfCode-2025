@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ProblemPart } from "./problems";
+    import type { ProblemPart } from "./types";
 
     interface Props {
         part: ProblemPart;
