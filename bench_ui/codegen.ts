@@ -28,8 +28,8 @@ const unindent = (s: string) =>
     )
         .join("\n").trim();
 
-for (let i = 0; i < problems.length; i++) {
-    const name = problems[i];
+for (let i = 1; i < problems.length + 1; i++) {
+    const name = problems[i - 1];
 
     imports.push(`
         import day_${i}_part_1_est from "../../target/criterion/problem 1 - part 1/new/estimates.json";
