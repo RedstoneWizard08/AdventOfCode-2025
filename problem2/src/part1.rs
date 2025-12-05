@@ -15,13 +15,13 @@ pub fn main() {
 
             first..last
         })
-        .filter_map(|num| {
+        .map(|num| {
             // invalid ID = n * 10^(num.len() / 2) + n
             let d = (num.ilog10() + 1) / 2;
             let base = num / 10_usize.pow(d);
             let target = (base * 10_usize.pow(d)) + base;
 
-            if num == target { Some(num) } else { None }
+            if num == target { num } else { 0 }
         })
         .sum::<usize>();
 

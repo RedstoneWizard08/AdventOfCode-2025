@@ -7,7 +7,12 @@ const INPUT: &str = include_str!("../input.txt");
 pub fn main() {
     let (pre, post) = INPUT.trim().split_once("\n\n").unwrap();
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
-    let ids = post.trim().lines().map(|it| it.to_owned()).collect_vec();
+
+    let ids = post
+        .trim()
+        .lines()
+        .map(|it| it.parse::<u64>().unwrap())
+        .collect_vec();
 
     let ranges = ranges
         .into_iter()
@@ -34,15 +39,10 @@ pub fn main() {
         }
     }
 
-    let mut ok = 0;
-
-    for id in ids {
-        let id = id.parse::<u64>().unwrap();
-
-        if all.iter().any(|it| it.contains(&id)) {
-            ok += 1;
-        }
-    }
+    let ok = ids
+        .into_iter()
+        .filter(|it| all.iter().any(|r| r.contains(it)))
+        .count();
 
     #[cfg(feature = "cli")]
     println!("Fresh: {ok}");

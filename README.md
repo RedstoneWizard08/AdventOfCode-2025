@@ -41,15 +41,15 @@ Shell: fish 4.2.0
 problem 1 - part 1      time:   [161.99 µs 167.77 µs 173.59 µs]
 problem 1 - part 2      time:   [183.58 µs 192.25 µs 202.20 µs]
 
-problem 2 - part 1      time:   [5.9131 ms 6.1700 ms 6.4629 ms]
-problem 2 - part 2      time:   [21.335 ms 21.815 ms 22.301 ms]
+problem 2 - part 1      time:   [4.0160 ms 4.0646 ms 4.1149 ms]
+problem 2 - part 2      time:   [16.455 ms 16.608 ms 16.792 ms]
 
 problem 3 - part 1      time:   [110.41 µs 113.50 µs 116.48 µs]
 problem 3 - part 2      time:   [170.25 µs 174.57 µs 179.35 µs]
 
-problem 4 - part 1      time:   [1.8899 µs 1.8937 µs 1.8977 µs]
-problem 4 - part 2      time:   [4.8870 ms 4.9100 ms 4.9329 ms]
+problem 4 - part 1      time:   [1.8690 µs 1.8759 µs 1.8838 µs]
+problem 4 - part 2      time:   [2.4132 ms 2.4225 ms 2.4318 ms]
 
-problem 5 - part 1      time:   [143.41 µs 144.01 µs 144.65 µs]
+problem 5 - part 1      time:   [52.296 µs 52.543 µs 52.798 µs]
 problem 5 - part 2      time:   [22.457 µs 22.969 µs 23.709 µs]
 ```
