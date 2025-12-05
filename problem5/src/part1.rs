@@ -1,4 +1,5 @@
 use itertools::Itertools;
+use std::ops::RangeInclusive;
 
 const INPUT: &str = include_str!("../input.txt");
 
@@ -8,14 +9,30 @@ pub fn main() {
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
     let ids = post.trim().lines().map(|it| it.to_owned()).collect_vec();
 
-    let mut fresh = Vec::new();
+    let ranges = ranges
+        .into_iter()
+        .map(|it| {
+            let (s, e) = it.split_once("-").unwrap();
 
-    for item in ranges {
-        let (start, end) = item.split_once("-").unwrap();
-        let start = start.parse::<u64>().unwrap();
-        let end = end.parse::<u64>().unwrap();
+            (s.parse::<u64>().unwrap(), e.parse::<u64>().unwrap())
+        })
+        .sorted_unstable_by_key(|it| it.0)
+        .collect_vec();
 
-        fresh.push(start..=end);
+    let mut all = Vec::<RangeInclusive<u64>>::new();
+
+    for (s, e) in ranges {
+        let range = s..=e;
+
+        let existing = all.last_mut();
+
+        if let Some(existing) = existing
+            && *existing.end() >= s
+        {
+            *existing = *existing.start()..=(*existing.end()).max(e);
+        } else {
+            all.push(range);
+        }
     }
 
     let mut ok = 0;
@@ -23,7 +40,7 @@ pub fn main() {
     for id in ids {
         let id = id.parse::<u64>().unwrap();
 
-        if fresh.iter().any(|it| it.contains(&id)) {
+        if all.iter().any(|it| it.contains(&id)) {
             ok += 1;
         }
     }

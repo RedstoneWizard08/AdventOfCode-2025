@@ -1,23 +1,41 @@
 use itertools::Itertools;
+use std::ops::RangeInclusive;
 
 const INPUT: &str = include_str!("../input.txt");
 
-// DOES NOT WORK
+#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     let (pre, _) = INPUT.trim().split_once("\n\n").unwrap();
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
 
-    let mut min = 0u64;
-    let mut max = 0u64;
+    let ranges = ranges
+        .into_iter()
+        .map(|it| {
+            let (s, e) = it.split_once("-").unwrap();
 
-    for item in ranges {
-        let (start, end) = item.split_once("-").unwrap();
-        let start = start.parse::<u64>().unwrap();
-        let end = end.parse::<u64>().unwrap();
+            (s.parse::<u64>().unwrap(), e.parse::<u64>().unwrap())
+        })
+        .sorted_unstable_by_key(|it| it.0)
+        .collect_vec();
 
-        min = min.min(start);
-        max = max.max(end);
+    let mut all = Vec::<RangeInclusive<u64>>::new();
+
+    for (s, e) in ranges {
+        let range = s..=e;
+
+        let existing = all.last_mut();
+
+        if let Some(existing) = existing
+            && *existing.end() >= s
+        {
+            *existing = *existing.start()..=(*existing.end()).max(e);
+        } else {
+            all.push(range);
+        }
     }
 
-    println!("Fresh: {}", max - min);
+    let all = all.into_iter().map(|it| *it.end() - *it.start() + 1);
+
+    #[cfg(feature = "cli")]
+    println!("Fresh: {}", all.sum::<u64>());
 }
