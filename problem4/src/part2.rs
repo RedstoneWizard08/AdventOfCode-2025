@@ -4,17 +4,23 @@ embed_input!("../input.txt");
 
 const WIDTH_I: isize = WIDTH as isize;
 const HEIGHT_I: isize = HEIGHT as isize;
+const SIZE: usize = WIDTH * HEIGHT;
 
-fn get_cell(cells: &[[bool; WIDTH]; HEIGHT], y: isize, x: isize) -> bool {
+#[inline(always)]
+fn rp(x: usize, y: usize) -> usize {
+    y * WIDTH + x
+}
+
+fn get_cell(cells: &[bool; SIZE], y: isize, x: isize) -> bool {
     if x < 0 || x > WIDTH_I - 1 || y < 0 || y > WIDTH_I - 1 {
         false
     } else {
-        cells[y as usize][x as usize]
+        cells[rp(x as usize, y as usize)]
     }
 }
 
 #[inline(always)]
-fn check(cells: &[[bool; WIDTH]; HEIGHT]) -> usize {
+fn check(cells: &[bool; SIZE]) -> usize {
     let mut count = 0;
 
     for y in 0..HEIGHT_I {
@@ -46,12 +52,12 @@ fn check(cells: &[[bool; WIDTH]; HEIGHT]) -> usize {
 #[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     // bool => Is there paper in the cell?
-    let mut cells = [[false; WIDTH]; HEIGHT];
+    let mut cells = [false; SIZE];
 
     // I *could* do this step at compile time, but that would be cheating for the benchmarks.
     for (y, line) in INPUT.iter().enumerate() {
         for (x, ch) in line.iter().enumerate() {
-            cells[y][x] = *ch == '@';
+            cells[rp(x, y)] = *ch == '@';
         }
     }
 
@@ -77,7 +83,7 @@ pub fn main() {
                 filled += get_cell(&cells, y + 1, x + 1) as u8; // bottom right
 
                 if filled < 4 {
-                    cells[y as usize][x as usize] = false;
+                    cells[rp(x as usize, y as usize)] = false;
                     removed += 1;
                 }
             }
