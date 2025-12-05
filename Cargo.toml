@@ -21,3 +21,7 @@ members = [
 [profile.release]
 debug = false
 opt-level = 3
+
+[profile.profiling]
+inherits = "release"
+debug = true

@@ -416,6 +416,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -429,6 +430,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -442,6 +444,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -455,6 +458,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -468,6 +472,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -481,6 +486,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -508,6 +514,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -521,6 +528,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -534,6 +542,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -547,6 +556,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
@@ -560,6 +570,7 @@ dependencies = [
  "indicatif",
  "iter-first-max",
  "itertools 0.14.0",
+ "macros",
  "rayon",
 ]
 
