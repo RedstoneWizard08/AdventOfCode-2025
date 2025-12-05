@@ -32,10 +32,10 @@ for (let i = 1; i < problems.length + 1; i++) {
     const name = problems[i - 1];
 
     imports.push(`
-        import day_${i}_part_1_est from "../../target/criterion/problem 1 - part 1/new/estimates.json";
-        import day_${i}_part_2_est from "../../target/criterion/problem 1 - part 2/new/estimates.json";
-        import day_${i}_part_1_info from "../../target/criterion/problem 1 - part 1/new/benchmark.json";
-        import day_${i}_part_2_info from "../../target/criterion/problem 1 - part 2/new/benchmark.json";
+        import day_${i}_part_1_est from "../../target/criterion/problem ${i} - part 1/new/estimates.json";
+        import day_${i}_part_2_est from "../../target/criterion/problem ${i} - part 2/new/estimates.json";
+        import day_${i}_part_1_info from "../../target/criterion/problem ${i} - part 1/new/benchmark.json";
+        import day_${i}_part_2_info from "../../target/criterion/problem ${i} - part 2/new/benchmark.json";
     `);
 
     defs.push(`
