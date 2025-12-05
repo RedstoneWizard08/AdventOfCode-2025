@@ -23,7 +23,6 @@ pub fn main() {
 
     for (s, e) in ranges {
         let range = s..=e;
-
         let existing = all.last_mut();
 
         if let Some(existing) = existing
