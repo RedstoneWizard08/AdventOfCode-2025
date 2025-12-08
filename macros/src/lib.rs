@@ -40,7 +40,7 @@ pub fn embed_input(input: TokenStream) -> TokenStream {
     let mut parts = Vec::new();
 
     let content = fs::read_to_string(path).expect("Cannot read file: ");
-    let lines = content.trim().lines();
+    let lines = content.trim_end_matches('\n').lines();
 
     for line in lines {
         let chars = line.chars();

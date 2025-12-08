@@ -3,7 +3,6 @@ use std::ops::RangeInclusive;
 
 const INPUT: &str = include_str!("../input.txt");
 
-#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     let (pre, post) = INPUT.trim().split_once("\n\n").unwrap();
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
@@ -43,6 +42,8 @@ pub fn main() {
         .into_iter()
         .filter(|it| all.iter().any(|r| r.contains(it)))
         .count();
+
+    std::hint::black_box(ok);
 
     #[cfg(feature = "cli")]
     println!("Fresh: {ok}");

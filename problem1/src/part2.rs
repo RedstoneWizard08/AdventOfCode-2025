@@ -22,7 +22,6 @@ fn dumb_move(left: bool, mut orig: isize, amount: isize, clicks: &mut usize) -> 
     orig
 }
 
-#[cfg_attr(not(feature = "cli"), allow(unused_mut))]
 pub fn main() {
     let mut zeros = 0;
     let mut pos = 50;
@@ -42,6 +41,8 @@ pub fn main() {
             'R' => pos = dumb_move(false, pos, amount, &mut zeros),
             i => panic!("Unknown mode: {i}"),
         });
+
+    std::hint::black_box(zeros);
 
     #[cfg(feature = "cli")]
     println!("Zeros: {zeros}");

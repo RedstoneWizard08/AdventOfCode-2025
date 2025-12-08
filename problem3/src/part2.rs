@@ -17,7 +17,6 @@ fn take_from(nums: &Vec<u32>, needed: usize, cursor: &mut usize) -> u32 {
     avail[idx]
 }
 
-#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     let lines = INPUT.trim().lines().map(|it| it.to_owned()).collect_vec();
     let mut total = 0u64;
@@ -49,6 +48,8 @@ pub fn main() {
 
         total += num;
     }
+
+    std::hint::black_box(total);
 
     #[cfg(feature = "cli")]
     println!("Total: {total}");

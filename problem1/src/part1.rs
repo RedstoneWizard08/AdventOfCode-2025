@@ -1,11 +1,11 @@
 const INPUT: &str = include_str!("../input.txt");
 
-#[cfg_attr(not(feature = "cli"), allow(unused_mut))]
 pub fn main() {
     let mut zeros = 0;
     let mut pos = 50;
 
-    INPUT.trim()
+    INPUT
+        .trim()
         .lines()
         .map(|it| {
             let mut chars = it.chars();
@@ -25,6 +25,8 @@ pub fn main() {
                 zeros += 1;
             }
         });
+
+    std::hint::black_box(zeros);
 
     #[cfg(feature = "cli")]
     println!("Zeros: {zeros}");

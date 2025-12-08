@@ -52,4 +52,7 @@ problem 4 - part 2      time:   [2.4132 ms 2.4225 ms 2.4318 ms]
 
 problem 5 - part 1      time:   [52.296 µs 52.543 µs 52.798 µs]
 problem 5 - part 2      time:   [22.457 µs 22.969 µs 23.709 µs]
+
+problem 6 - part 1      time:   [15.054 µs 15.510 µs 16.077 µs]
+problem 6 - part 2      time:   [38.603 µs 39.732 µs 41.121 µs]
 ```

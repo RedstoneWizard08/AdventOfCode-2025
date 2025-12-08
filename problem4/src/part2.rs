@@ -11,7 +11,6 @@ fn rp(x: usize, y: usize) -> usize {
     y * WIDTH + x
 }
 
-#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     // bool => Is there paper in the cell?
     let mut cells = [false; SIZE];
@@ -58,6 +57,8 @@ pub fn main() {
 
         removed += removed_local;
     }
+
+    std::hint::black_box(removed);
 
     #[cfg(feature = "cli")]
     println!("Removed: {removed}");

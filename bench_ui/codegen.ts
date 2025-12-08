@@ -4,7 +4,7 @@ const problems = [
     "Lobby", // 3
     "Printing Department", // 4
     "Cafeteria", // 5
-    // "??", // 6
+    "Trash Compactor", // 6
     // "??", // 7
     // "??", // 8
     // "??", // 9

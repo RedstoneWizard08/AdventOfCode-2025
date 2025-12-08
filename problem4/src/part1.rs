@@ -10,7 +10,6 @@ fn get_cell(cells: &[[bool; WIDTH]; HEIGHT], y: isize, x: isize) -> bool {
     }
 }
 
-#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     // bool => Is there paper in the cell?
     let mut cells = [[false; WIDTH]; HEIGHT];
@@ -45,6 +44,8 @@ pub fn main() {
             }
         }
     }
+
+    std::hint::black_box(count);
 
     #[cfg(feature = "cli")]
     println!("Answer: {count}");

@@ -3,7 +3,6 @@ use std::ops::RangeInclusive;
 
 const INPUT: &str = include_str!("../input.txt");
 
-#[cfg_attr(not(feature = "cli"), allow(unused))]
 pub fn main() {
     let (pre, _) = INPUT.trim().split_once("\n\n").unwrap();
     let ranges = pre.trim().lines().map(|it| it.to_owned()).collect_vec();
@@ -33,8 +32,13 @@ pub fn main() {
         }
     }
 
-    let all = all.into_iter().map(|it| *it.end() - *it.start() + 1);
+    let res = all
+        .into_iter()
+        .map(|it| *it.end() - *it.start() + 1)
+        .sum::<u64>();
+
+    std::hint::black_box(res);
 
     #[cfg(feature = "cli")]
-    println!("Fresh: {}", all.sum::<u64>());
+    println!("Fresh: {}", res);
 }
