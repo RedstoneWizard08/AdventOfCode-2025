@@ -34,3 +34,18 @@ impl<const W: usize, const H: usize, T: Copy> MultiCursor<W, H, T> {
         }
     }
 }
+
+pub trait Squared {
+    type Output;
+
+    fn sqr(&self) -> Self::Output;
+}
+
+impl Squared for f32 {
+    type Output = f32;
+
+    #[inline(always)]
+    fn sqr(&self) -> Self::Output {
+        self * self
+    }
+}

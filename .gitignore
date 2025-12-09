@@ -5,3 +5,4 @@ perf.data*
 test-input.txt
 profile.json.gz
 input2.txt
+dump.ron

@@ -61,6 +61,22 @@ pub fn embed_input(input: TokenStream) -> TokenStream {
     .into()
 }
 
+#[proc_macro]
+pub fn embed_lines(input: TokenStream) -> TokenStream {
+    let lit = parse_macro_input!(input as LitStr);
+    let path = resolve_file_path(lit);
+
+    let content = fs::read_to_string(path).expect("Cannot read file: ");
+    let lines = content.trim_end_matches('\n').lines().collect::<Vec<_>>();
+    let height = lines.len();
+
+    quote! {
+        const HEIGHT: usize = #height;
+        const INPUT: [&str; HEIGHT] = [#(#lines),*];
+    }
+    .into()
+}
+
 mod kw {
     use syn::custom_keyword;
 
