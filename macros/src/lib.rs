@@ -62,6 +62,52 @@ pub fn embed_input(input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro]
+pub fn embed_positions(input: TokenStream) -> TokenStream {
+    let lit = parse_macro_input!(input as LitStr);
+    let path = resolve_file_path(lit);
+
+    let mut min_x = usize::MAX;
+    let mut max_x = 0_usize;
+
+    let mut min_y = usize::MAX;
+    let mut max_y = 0_usize;
+
+    let mut parts = Vec::new();
+
+    let content = fs::read_to_string(path).expect("Cannot read file: ");
+    let lines = content.trim_end_matches('\n').lines();
+
+    for line in lines {
+        let (a, b) = line.split_once(",").unwrap();
+        let a = a.parse::<usize>().unwrap();
+        let b = b.parse::<usize>().unwrap();
+
+        min_x = min_x.min(a);
+        max_x = max_x.max(a);
+
+        min_y = min_y.min(b);
+        max_y = max_y.max(b);
+
+        parts.push(quote! { (#a, #b) });
+    }
+
+    let len = parts.len();
+
+    quote! {
+        const MIN_X: usize = #min_x;
+        const MAX_X: usize = #max_x;
+
+        const MIN_Y: usize = #min_y;
+        const MAX_Y: usize = #max_y;
+
+        const SIZE: usize = #len;
+
+        const INPUT: [(usize, usize); SIZE] = [#(#parts),*];
+    }
+    .into()
+}
+
+#[proc_macro]
 pub fn embed_lines(input: TokenStream) -> TokenStream {
     let lit = parse_macro_input!(input as LitStr);
     let path = resolve_file_path(lit);
