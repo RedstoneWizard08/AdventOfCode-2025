@@ -123,6 +123,34 @@ pub fn embed_lines(input: TokenStream) -> TokenStream {
     .into()
 }
 
+#[proc_macro]
+pub fn embed_split_strip_colon_lines(input: TokenStream) -> TokenStream {
+    let lit = parse_macro_input!(input as LitStr);
+    let path = resolve_file_path(lit);
+
+    let content = fs::read_to_string(path).expect("Cannot read file: ");
+    let lines = content.trim_end_matches('\n').lines().collect::<Vec<_>>();
+    let height = lines.len();
+    let mut parts = Vec::new();
+
+    for line in lines {
+        let mut bits = line
+            .split(" ")
+            .map(|it| it.trim().trim_end_matches(':'))
+            .collect::<Vec<_>>();
+
+        let first = bits.remove(0);
+
+        parts.push(quote! { (#first, &[#(#bits),*]) });
+    }
+
+    quote! {
+        const HEIGHT: usize = #height;
+        const INPUT: [(&str, &[&str]); HEIGHT] = [#(#parts),*];
+    }
+    .into()
+}
+
 mod kw {
     use syn::custom_keyword;
 

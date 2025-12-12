@@ -40,6 +40,6 @@ bench_modules![
     problem8 = "problem 8",
     // problem9 = "problem 9",
     // problem10 = "problem 10",
-    // problem11 = "problem 11",
+    problem11 = "problem 11",
     // problem12 = "problem 12",
 ];
